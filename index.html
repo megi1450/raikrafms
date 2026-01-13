@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAIKRA - Facility Management Solutions</title>
+<link rel="icon" href="logo-bg-diamond.jpeg">
+
+<style>
+:root{
+  --brand:#0D2C4F;
+  --brand-dark:#081E36;
+  --accent:#F2D58A;
+  --accent-soft:#FFF3D6;
+  --bg:#F7F8FA;
+  --panel:#FFFFFF;
+  --white:#ffffff;
+  --muted:#6B7280;
+
+  --shadow-sm:0 10px 25px rgba(13,44,79,0.12);
+  --shadow-md:0 30px 70px rgba(13,44,79,0.25);
+}
+
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;}
+body{
+  background:var(--bg);
+  color:#1E2933;
+  line-height:1.75;
+  scroll-behavior:smooth;
+  text-align:center;
+}
+
+/* NAV */
+header{
+  position:fixed;
+  width:100%;
+  top:0;
+  background:rgba(8,30,54,0.92);
+  backdrop-filter:blur(10px);
+  z-index:1000;
+}
+nav{
+  max-width:1400px;
+  margin:auto;
+  padding:16px;
+  display:flex;
+  justify-content:center;
+  gap:36px;
+}
+nav a{
+  color:#cbd5e1;
+  text-decoration:none;
+  font-size:13px;
+  letter-spacing:1px;
+}
+nav a:hover{color:#fff;}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  background:
+    linear-gradient(
+      rgba(8,30,54,0.65),
+      rgba(8,30,54,0.85)
+    ),
+    url("hero-section.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+.hero-inner{
+  max-width:1000px;
+  padding:190px 20px 140px;
+  text-shadow:0 10px 30px rgba(0,0,0,0.45);
+}
+
+.hero h1{
+  font-size:68px;
+  color:#fff;
+  margin-bottom:22px;
+  letter-spacing:-0.5px;
+}
+
+.hero p{
+  color:#e5e7eb;
+  font-size:18px;
+  max-width:820px;
+  margin:auto;
+}
+
+/* SECTIONS */
+section{padding:110px 20px;}
+.container{max-width:1250px;margin:auto;}
+.panel{background:var(--panel);}
+.dark{background:var(--brand-dark);color:#e5e7eb;}
+
+h2{
+  font-size:38px;
+  margin-bottom:24px;
+  color:var(--brand);
+}
+.dark h2{color:#fff;}
+
+p{
+  color:var(--muted);
+  max-width:1000px;
+  margin:0 auto 18px;
+  font-size:15px;
+}
+
+/* GRID & CARDS */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:32px;
+  margin-top:60px;
+}
+.card{
+  background:var(--white);
+  padding:36px;
+  border-radius:22px;
+  box-shadow:var(--shadow-sm);
+  transition:transform .35s ease, box-shadow .35s ease;
+  text-align:left;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Accent line */
+.card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+}
+
+/* Hover */
+.card:hover{
+  transform:translateY(-10px) scale(1.01);
+  box-shadow:var(--shadow-md);
+}
+
+.card h3{
+  font-size:16px;
+  color:var(--brand-dark);
+  margin-bottom:10px;
+}
+.card p{
+  font-size:14px;
+  margin:0;
+  color:var(--muted);
+}
+
+/* METRICS */
+.metrics{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:44px;
+  margin-top:60px;
+}
+.metric strong{
+  font-size:44px;
+  color:var(--accent);
+}
+
+/* CTA */
+.cta{
+  background:linear-gradient(135deg,var(--brand),var(--brand-dark));
+  color:#fff;
+  padding:110px 20px;
+}
+.cta h2{color:#fff;}
+.cta p{color:#e5e7eb;}
+
+/* FOOTER */
+footer{
+  background:#050f1c;
+  color:#cbd5e1;
+  padding:100px 20px 40px;
+}
+.footer-grid{
+  max-width:1400px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:44px;
+}
+footer h4{
+  color:#fff;
+  font-size:14px;
+  margin-bottom:14px;
+}
+footer p{
+  font-size:13px;
+  line-height:1.9;
+}
+.footer-bottom{
+  margin-top:44px;
+  font-size:12px;
+  color:#94a3b8;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero h1{font-size:40px;}
+  section{padding:90px 16px;}
+  .card{padding:28px;}
+}
+
+/* IMAGE SECTIONS */
+.image-section{
+  position:relative;
+  background-size:cover;
+  background-position:center;
+  padding:130px 20px;
+}
+
+.image-section::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(8,30,54,0.82);
+  z-index:0;
+}
+
+.image-section .container{
+  position:relative;
+  z-index:1;
+}
+
+/* GLASS CARDS */
+.glass-card{
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,0.22),
+    rgba(255,255,255,0.08)
+  );
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,0.35);
+  box-shadow:0 25px 60px rgba(0,0,0,0.35);
+}
+
+
+.glass-card h3{
+  color:#ffffff;
+}
+
+.glass-card p{
+  color:#e5e7eb;
+}
+
+/* LOGO */
+.logo{
+  color:#fff;
+  font-size:14px;
+  letter-spacing:2px;
+  font-weight:600;
+}
+
+/* MOBILE NAV */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+  gap:5px;
+}
+.menu-toggle span{
+  width:22px;
+  height:2px;
+  background:#fff;
+  transition:0.3s;
+}
+
+.nav-links{
+  display:flex;
+  gap:36px;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav{
+    justify-content:space-between;
+  }
+
+  .menu-toggle{
+    display:flex;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:64px;
+    left:0;
+    width:100%;
+    background:rgba(8,30,54,0.97);
+    flex-direction:column;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height 0.4s ease;
+  }
+
+  .nav-links a{
+    padding:16px;
+    border-top:1px solid rgba(255,255,255,0.08);
+  }
+
+  .nav-links.open{
+    max-height:360px;
+  }
+}
+
+section::after{
+  content:"";
+  display:block;
+  width:60px;
+  height:3px;
+  background:linear-gradient(90deg,var(--accent),transparent);
+  margin:60px auto 0;
+  border-radius:2px;
+}
+.dark::after,
+.image-section::after,
+.cta::after{
+  display:none;
+}
+
+.hero h1{
+  animation:fadeUp 1.2s ease forwards;
+}
+.hero p{
+  animation:fadeUp 1.6s ease forwards;
+}
+
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(30px);}
+  to{opacity:1;transform:none;}
+}
+
+nav a{
+  position:relative;
+}
+
+nav a::after{
+  content:"";
+  position:absolute;
+  left:50%;
+  bottom:-6px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:0.3s ease;
+}
+
+nav a:hover::after{
+  width:100%;
+  left:0;
+}
+
+.cta{
+  background:
+    radial-gradient(circle at top,rgba(255,255,255,0.15),transparent 60%),
+    linear-gradient(135deg,var(--brand),var(--brand-dark));
+}
+
+/* SCROLL PROGRESS */
+#scrollProgress{
+  position:fixed;
+  top:0;
+  left:0;
+  height:4px;
+  width:0;
+  background:linear-gradient(90deg,var(--accent),#ffffff);
+  z-index:2000;
+}
+
+/* GALLERY */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:26px;
+  margin-top:60px;
+}
+
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:18px;
+  box-shadow:var(--shadow-sm);
+  transition:transform .4s ease, box-shadow .4s ease;
+}
+
+.gallery img:hover{
+  transform:scale(1.04);
+  box-shadow:var(--shadow-md);
+}
+
+/* CLIENT LOGOS */
+.logo-strip{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:40px;
+  margin-top:60px;
+}
+
+.logo-strip img{
+  height:60px;
+  filter:grayscale(100%);
+  opacity:0.7;
+  transition:all .3s ease;
+}
+
+.logo-strip img:hover{
+  filter:grayscale(0%);
+  opacity:1;
+}
+
+/* LOGO WRAPPER – GLASS STRIP STYLE */
+.logo-wrap{
+  background:rgba(255,255,255,0.92);
+  padding:6px 10px;
+  border-radius:4px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+/* REMOVE SHADOW COMPLETELY */
+.logo-wrap{
+  box-shadow:none;
+}
+
+/* LOGO IMAGE */
+.logo-wrap img{
+  height:26px;
+  width:auto;
+  display:block;
+}
+
+/* PRELOADER */
+#preloader{
+  position:fixed;
+  inset:0;
+  background:#081E36;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+}
+
+.loader-content{
+  text-align:center;
+  animation:fadePulse 1.8s ease-in-out infinite;
+}
+
+.loader-content img{
+  height:42px;
+  margin-bottom:18px;
+}
+
+.loader-content span{
+  color:#cbd5e1;
+  font-size:13px;
+  letter-spacing:1px;
+}
+
+/* Fade animation */
+@keyframes fadePulse{
+  0%,100%{opacity:0.4}
+  50%{opacity:1}
+}
+
+
+</style>
+</head>
+
+<body>
+    <div id="scrollProgress"></div>
+
+
+<header>
+  <nav>
+    <div class="logo-wrap">
+  <img src="logo.png" alt="RAIKRA Logo">
+</div>
+
+
+    <div class="nav-links" id="navLinks">
+      <a href="#about">ABOUT</a>
+      <a href="#services">SERVICES</a>
+      <a href="#metrics">METRICS</a>
+      <a href="#compliance">COMPLIANCE</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+
+    <div class="menu-toggle" id="menuToggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+</header>
+
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1>Trusted Facilities.<br>Delivered Right.</h1>
+    <p>
+      RAIKRA is a partner-led facility management company delivering reliable,
+      compliant, and technology-enabled services across diverse asset classes.
+    </p>
+    <div style="
+  width:90px;
+  height:4px;
+  background:linear-gradient(90deg,#F2D58A,transparent);
+  margin:32px auto 0;
+  border-radius:4px;">
+</div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+<div class="container">
+<h2>About RAIKRA</h2>
+<p>
+RAIKRA Facility Management Solutions is a partner-led organization delivering
+integrated facility services with a strong focus on governance, compliance,
+and operational excellence.
+</p>
+
+<div class="grid">
+<div class="card">
+<h3>Partner-Led Governance</h3>
+<p>
+Direct involvement of leadership ensures accountability,
+clear decision-making, and consistent service quality.
+</p>
+</div>
+
+<div class="card">
+<h3>Experienced FM Professionals</h3>
+<p>
+Qualified engineers, supervisors, and facility managers
+with hands-on experience across asset classes.
+</p>
+</div>
+
+<div class="card">
+<h3>Technology-Enabled Operations</h3>
+<p>
+Digital work orders, asset tracking, CAFM systems,
+and real-time operational reporting.
+</p>
+</div>
+</div>
+</div>
+</section>
+
+
+<!-- SERVICES -->
+<section id="services" class="image-section"
+style="background-image:url('https://images.unsplash.com/photo-1581093458791-9f3c3900df44');">
+
+<div class="container">
+<h2 style="color:#fff;">Our Services</h2>
+<p style="color:#e5e7eb;">
+End-to-end facility management solutions designed to ensure safety, uptime,
+hygiene, and cost efficiency.
+</p>
+
+<div class="grid">
+
+<div class="card glass-card">
+<h3>Integrated Facility Management</h3>
+<p>
+Single-point accountability for hard services, soft services, security,
+and support functions under one governance framework.
+</p>
+</div>
+
+<div class="card glass-card">
+<h3>Hard Services Management</h3>
+<p>
+MEP systems, HVAC, fire & life safety, DG/UPS, BMS operations with preventive
+maintenance planning.
+</p>
+</div>
+
+<div class="card glass-card">
+<h3>Soft Services Management</h3>
+<p>
+Housekeeping, landscaping, waste management, and hygiene services delivered
+by trained and supervised manpower.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+<section id="sites">
+<div class="container">
+<h2>Managed Sites & Communities</h2>
+<p>
+A glimpse of residential communities, commercial facilities, and operational
+environments managed by RAIKRA.
+</p>
+
+<div class="gallery">
+  <img src="https://images.unsplash.com/photo-1501183638710-841dd1904471" alt="">
+  <img src="https://images.unsplash.com/photo-1497366216548-37526070297c" alt="">
+  <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858" alt="">
+  <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e" alt="">
+  <img src="https://images.unsplash.com/photo-1527030280862-64139fba04ca" alt="">
+  <img src="https://images.unsplash.com/photo-1505691938895-1758d7feb511" alt="">
+</div>
+</div>
+</section>
+
+
+
+<!-- METRICS -->
+<section id="metrics" class="dark">
+<div class="container">
+<h2>Our Scale & Experience</h2>
+
+<div class="metrics">
+<div class="metric"><strong>30000+</strong><br>Residents Served</div>
+<div class="metric"><strong>200+</strong><br>Sites Managed</div>
+<div class="metric"><strong>10+</strong><br>Years Experience</div>
+<div class="metric"><strong>3500+</strong><br>Workforce Strength</div>
+</div>
+</div>
+</section>
+
+<section id="clients" class="panel">
+<div class="container">
+<h2>Trusted by Clients Across Sectors</h2>
+<p>
+RAIKRA partners with residential communities, corporates, institutions,
+and developers across India.
+</p>
+
+<div class="logo-strip">
+  <img src="https://dummyimage.com/180x80/cccccc/000000&text=Residential+Community">
+  <img src="https://dummyimage.com/180x80/cccccc/000000&text=IT+Park">
+  <img src="https://dummyimage.com/180x80/cccccc/000000&text=Corporate+Office">
+  <img src="https://dummyimage.com/180x80/cccccc/000000&text=Hospital">
+  <img src="https://dummyimage.com/180x80/cccccc/000000&text=Developer">
+</div>
+</div>
+</section>
+
+
+<!-- COMPLIANCE -->
+<section id="compliance" class="image-section"
+style="background-image:url('https://images.unsplash.com/photo-1501183638710-841dd1904471');">
+
+
+<div class="container">
+<h2 style="color:#fff;">Compliance & HSE</h2>
+<p style="color:#e5e7eb;">
+Compliance and safety are non-negotiable at RAIKRA. Our operations are built
+on statutory adherence, documented processes, and a zero-harm safety culture.
+</p>
+
+<div class="grid">
+
+<div class="card glass-card">
+<h3>Statutory & Labour Compliance</h3>
+<p>
+EPF, ESIC, labour laws, minimum wages, payroll compliance,
+and statutory filings strictly monitored and audited.
+</p>
+</div>
+
+<div class="card glass-card">
+<h3>Fire & Electrical Safety</h3>
+<p>
+Periodic fire audits, electrical inspections, mock drills,
+and coordination with statutory authorities.
+</p>
+</div>
+
+<div class="card glass-card">
+<h3>Health, Safety & Environment (HSE)</h3>
+<p>
+Zero-harm culture supported by SOPs, safety inductions,
+toolbox talks, audits, and incident reporting systems.
+</p>
+</div>
+
+</div>
+</div>
+</section>
+
+
+<!-- CTA -->
+<section class="cta">
+<div class="container">
+<h2>Let’s Build Reliable Facilities Together</h2>
+<p>
+Reach out to RAIKRA to discuss your facility management requirements
+and long-term operational partnerships.
+</p>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contact">
+<div class="footer-grid">
+<div>
+<h4>RAIKRA</h4>
+<p>Trusted Facilities. Delivered Right.</p>
+</div>
+
+<div>
+<h4>Services</h4>
+<p>Integrated FM<br>Hard & Soft Services<br>Energy & Compliance</p>
+</div>
+
+<div>
+<h4>Industries</h4>
+<p>Corporate<br>Residential<br>Healthcare<br>Industrial</p>
+</div>
+
+<div>
+<h4>Contact</h4>
+<p>Bangalore, India<br>info@raikra.com</p>
+</div>
+</div>
+
+<div class="footer-bottom">
+© 2026 RAIKRA Facility Management Solutions. All rights reserved.
+</div>
+</footer>
+
+<script>
+// ===== SMOOTH SCROLL WITH EASING & OFFSET =====
+const links = document.querySelectorAll("nav a");
+
+function smoothScrollTo(targetEl, duration = 800) {
+  const headerOffset = 90;
+  const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+  const startPosition = window.pageYOffset;
+  const distance = targetPosition - startPosition;
+  let startTime = null;
+
+  function animation(currentTime) {
+    if (startTime === null) startTime = currentTime;
+    const timeElapsed = currentTime - startTime;
+    const run = easeInOutQuad(timeElapsed, startPosition, distance, duration);
+    window.scrollTo(0, run);
+    if (timeElapsed < duration) {
+      requestAnimationFrame(animation);
+    }
+  }
+  requestAnimationFrame(animation);
+}
+
+// Easing Function (easeInOutQuad)
+function easeInOutQuad(t, b, c, d) {
+  t /= d / 2;
+  if (t < 1) return (c/2)*t*t + b;
+  t--;
+  return -c/2 * (t*(t-2) - 1) + b;
+}
+
+// Add click listeners
+links.forEach(link => {
+  link.addEventListener("click", function (e) {
+    e.preventDefault();
+    const targetID = this.getAttribute("href");
+    if (targetID === "" || targetID === "#") return;
+    const targetSection = document.querySelector(targetID);
+    if (!targetSection) return;
+
+    smoothScrollTo(targetSection, 700);
+    
+    // Close mobile nav if open
+    const navLinks = document.getElementById("navLinks");
+    if (navLinks && navLinks.classList.contains("open")) {
+      navLinks.classList.remove("open");
+    }
+  });
+});
+</script>
+
+<script>
+window.addEventListener("scroll",()=>{
+  const scrollTop = document.documentElement.scrollTop;
+  const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+  const progress = (scrollTop / height) * 100;
+  document.getElementById("scrollProgress").style.width = progress + "%";
+});
+</script>
+
+<script>
+/* MOBILE MENU TOGGLE */
+const toggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+toggle.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+</script>
+</body>
+</html>
