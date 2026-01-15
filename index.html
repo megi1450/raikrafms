@@ -699,6 +699,31 @@ nav a:hover::after{
   z-index:1500;
 }
 
+.learn-more{
+  display:inline-block;
+  margin-top:16px;
+  font-size:13px;
+  font-weight:600;
+  color:var(--brand);
+  text-decoration:none;
+  position:relative;
+}
+
+.learn-more::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:0;
+  height:2px;
+  background:var(--accent);
+  transition:0.3s ease;
+}
+
+.learn-more:hover::after{
+  width:100%;
+}
+
 </style>
 </head>
 
@@ -826,6 +851,7 @@ transparency, and long-term sustainability across diverse asset classes.
       <li>Improved asset uptime</li>
       <li>Enhanced occupant comfort</li>
     </ul>
+    <a href="learn-more.html?section=remote" class="learn-more">Learn more →</a>
   </div>
 
   <!-- COBie Data Integration -->
@@ -850,6 +876,8 @@ transparency, and long-term sustainability across diverse asset classes.
       <li>Reliable data for long-term FM operations</li>
       <li>Compliance with industry standards</li>
     </ul>
+    <a href="learn-more.html?section=cobie" class="learn-more">Learn more →</a>
+
   </div>
 
   <!-- Compliance & Governance -->
@@ -874,6 +902,7 @@ transparency, and long-term sustainability across diverse asset classes.
       <li>Simplified audits and certifications</li>
       <li>Increased stakeholder confidence</li>
     </ul>
+    <a href="learn-more.html?section=compliance" class="learn-more">Learn more →</a>
   </div>
 
 </div>
