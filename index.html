@@ -68,17 +68,19 @@ nav a:hover{color:#fff;}
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+display:flex;
+align-items:flex-start;
+justify-content:center;
+
 }
 
 
 .hero-inner{
   max-width:1100px;
-  padding:160px 20px 140px;
+  padding:220px 20px 140px;  /* increased top padding */
   text-align:center;
 }
+
 
 
 .hero h1{
@@ -588,6 +590,31 @@ nav a:hover::after{
   }
 }
 
+@media (max-width: 768px){
+  .hero-inner{
+    padding-top: 180px;   /* pushes text below logo */
+  }
+}
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+}
+
+/* HARD RESERVED SPACE FOR BACKGROUND LOGO */
+.hero-spacer{
+  height:180px; /* DESKTOP SAFE */
+  flex-shrink:0;
+}
+
+@media (max-width: 768px){
+  .hero-spacer{
+    height:140px; /* Mobile-safe */
+  }
+}
+
 </style>
 </head>
 
@@ -623,10 +650,23 @@ nav a:hover::after{
 <div class="hero">
   <div class="hero-inner">
 
-  <h1>
-    TRUSTED FACILITIES.<br>
-    DELIVERED RIGHT.
-  </h1>
+<h1>
+  TRUSTED FACILITIES.<br>
+  DELIVERED RIGHT.
+</h1>
+
+<div class="hero-tagline">
+  Smarter Management. At Your Fingertips.
+</div>
+
+<p class="hero-description">
+  RAIKRA is a partner-led facility management company delivering reliable,
+  compliant, and technology-enabled services across diverse asset classes.
+  With innovative, data-driven solutions like COBie, RAIKRA empowers clients
+  to manage assets remotely and intelligently—bringing all-in-one control
+  to your fingertips for seamless, efficient operations.
+</p>
+
 
 
   <div class="hero-features">
