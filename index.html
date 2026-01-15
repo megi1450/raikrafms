@@ -666,11 +666,46 @@ nav a:hover::after{
   width:100%;
 }
 
+.cta-btn{
+  display:inline-block;
+  margin-top:32px;
+  padding:14px 38px;
+  border-radius:30px;
+  background:linear-gradient(135deg,var(--accent),#ffffff);
+  color:var(--brand-dark);
+  font-size:13px;
+  letter-spacing:1px;
+  text-decoration:none;
+  font-weight:600;
+  transition:transform .3s ease, box-shadow .3s ease;
+}
+
+.cta-btn:hover{
+  transform:translateY(-4px);
+  box-shadow:0 20px 40px rgba(0,0,0,0.25);
+}
+
+#siteNotice{
+  position:fixed;
+  top:80px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#16a34a;
+  color:#fff;
+  padding:12px 22px;
+  border-radius:8px;
+  font-size:14px;
+  display:none;
+  z-index:1500;
+}
+
 </style>
 </head>
 
 <body>
     <div id="scrollProgress"></div>
+    <div id="siteNotice">Thank you. Your enquiry has been received.</div>
+
 
 
 <header>
@@ -1003,6 +1038,7 @@ toolbox talks, audits, and incident reporting systems.
 Reach out to RAIKRA to discuss your facility management requirements
 and long-term operational partnerships.
 </p>
+<a href="enquiry.html" class="cta-btn">ENQUIRE NOW</a>
 </div>
 </section>
 
@@ -1034,6 +1070,19 @@ and long-term operational partnerships.
 © 2026 RAIKRA Facility Management Solutions. All rights reserved.
 </div>
 </footer>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+if(params.get("enquiry")==="success"){
+  const notice=document.getElementById("siteNotice");
+  notice.style.display="block";
+  setTimeout(()=>notice.style.display="none",3000);
+
+  // Clean URL
+  history.replaceState({}, document.title, window.location.pathname);
+}
+</script>
+
 <script>
 /* METRICS COUNT-UP ANIMATION (ENHANCED) */
 const counters = document.querySelectorAll(".metric strong");
@@ -1155,5 +1204,6 @@ toggle.addEventListener("click", () => {
   navLinks.classList.toggle("open");
 });
 </script>
+
 </body>
 </html>

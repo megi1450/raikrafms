@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAIKRA – Admin</title>
+
+<style>
+:root{
+  --brand:#0D2C4F;
+  --brand-dark:#081E36;
+  --bg:#F7F8FA;
+  --panel:#ffffff;
+  --accent:#F2D58A;
+  --success:#16a34a;
+  --muted:#6b7280;
+}
+
+*{box-sizing:border-box;font-family:system-ui;}
+
+body{
+  margin:0;
+  background:var(--bg);
+  color:#111827;
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(135deg,var(--brand),var(--brand-dark));
+  color:#fff;
+  padding:16px;
+  font-size:16px;
+}
+
+/* STATUS TOAST */
+#toast{
+  position:fixed;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--success);
+  color:#fff;
+  padding:10px 18px;
+  border-radius:8px;
+  font-size:14px;
+  display:none;
+  z-index:1000;
+}
+
+/* TABS */
+.tabs{
+  display:flex;
+  gap:8px;
+  padding:10px;
+  background:#e5e7eb;
+}
+
+.tab{
+  flex:1;
+  padding:10px;
+  border:none;
+  border-radius:8px;
+  font-size:13px;
+  cursor:pointer;
+  background:transparent;
+}
+
+.tab.active{
+  background:#fff;
+  font-weight:600;
+}
+
+/* CONTENT */
+.container{
+  padding:14px;
+  max-width:1000px;
+  margin:auto;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:14px;
+}
+
+/* CARD */
+.card{
+  background:var(--panel);
+  padding:14px;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(0,0,0,0.08);
+  position:relative;
+  transition:transform .2s ease, box-shadow .2s ease;
+}
+
+.card:hover{
+  transform:translateY(-2px);
+  box-shadow:0 12px 30px rgba(0,0,0,0.12);
+}
+
+.card strong{font-size:14px;}
+.meta{font-size:12px;color:var(--muted);margin-top:4px;}
+.time{font-size:11px;color:#9ca3af;margin-top:6px;}
+
+/* MENU */
+.menu{
+  position:absolute;
+  top:10px;
+  right:10px;
+}
+
+.menu-btn{
+  background:none;
+  border:none;
+  font-size:18px;
+  cursor:pointer;
+  padding:4px;
+}
+
+.menu-list{
+  position:absolute;
+  right:0;
+  top:26px;
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.18);
+  min-width:150px;
+  display:none;
+  overflow:hidden;
+  z-index:10;
+}
+
+.menu.open .menu-list{
+  display:block;
+  animation:fadeScale .15s ease;
+}
+
+.menu-list button{
+  width:100%;
+  padding:10px 14px;
+  border:none;
+  background:none;
+  font-size:13px;
+  text-align:left;
+  cursor:pointer;
+}
+
+.menu-list button:hover{
+  background:#f1f5f9;
+}
+
+/* STATES */
+.state{
+  text-align:center;
+  padding:30px;
+  color:var(--muted);
+}
+
+@keyframes fadeScale{
+  from{opacity:0; transform:scale(0.96)}
+  to{opacity:1; transform:none}
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">RAIKRA – Enquiry Management</div>
+<div id="toast"></div>
+
+<div class="tabs">
+  <button class="tab active" data-tab="pending">Pending</button>
+  <button class="tab" data-tab="whitelisted">Whitelisted</button>
+</div>
+
+<div class="container">
+
+  <div id="pending" class="grid"></div>
+  <div id="whitelisted" class="grid" style="display:none"></div>
+
+  <div id="loading" class="state">Loading enquiries…</div>
+  <div id="empty" class="state" style="display:none">No enquiries found</div>
+
+</div>
+
+<script>
+/* TAB SWITCH */
+const tabs=document.querySelectorAll(".tab");
+const panels={
+  pending:document.getElementById("pending"),
+  whitelisted:document.getElementById("whitelisted")
+};
+
+tabs.forEach(tab=>{
+  tab.onclick=()=>{
+    tabs.forEach(t=>t.classList.remove("active"));
+    tab.classList.add("active");
+    Object.keys(panels).forEach(p=>{
+      panels[p].style.display = p===tab.dataset.tab ? "grid" : "none";
+    });
+  };
+});
+
+/* MENU TOGGLE */
+function toggleMenu(e){
+  e.stopPropagation();
+  document.querySelectorAll(".menu").forEach(m=>m.classList.remove("open"));
+  e.currentTarget.parentElement.classList.toggle("open");
+}
+
+document.addEventListener("click",()=>{
+  document.querySelectorAll(".menu").forEach(m=>m.classList.remove("open"));
+});
+
+/* TOAST */
+function toast(msg){
+  const t=document.getElementById("toast");
+  t.textContent=msg;
+  t.style.display="block";
+  setTimeout(()=>t.style.display="none",2200);
+}
+
+/* TIME FORMAT */
+function timeAgo(ts){
+  if(!ts) return "";
+  const sec=Math.floor((Date.now()-ts)/1000);
+  if(sec<60) return "Just now";
+  if(sec<3600) return Math.floor(sec/60)+" min ago";
+  if(sec<86400) return Math.floor(sec/3600)+" hr ago";
+  return Math.floor(sec/86400)+" days ago";
+}
+</script>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, getDocs, updateDoc, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const app = initializeApp({
+  apiKey: "AIzaSyDPvY0_dyTpnGDhV9obD49vV_WmcJuXg-s",
+  authDomain: "raikrafms.firebaseapp.com",
+  projectId: "raikrafms"
+});
+
+const db = getFirestore(app);
+const pending=document.getElementById("pending");
+const white=document.getElementById("whitelisted");
+const loading=document.getElementById("loading");
+const empty=document.getElementById("empty");
+
+const snap = await getDocs(collection(db,"enquiries"));
+loading.style.display="none";
+
+if(snap.empty){ empty.style.display="block"; }
+
+snap.forEach(d=>{
+  const e=d.data();
+  const status = e.status==="whitelisted" ? "whitelisted" : "pending";
+  const created = e.createdAt?.toMillis?.();
+
+  const card=document.createElement("div");
+  card.className="card";
+  card.innerHTML=`
+    <strong>${e.name}</strong>
+    <div class="meta">${e.email}</div>
+    <div class="meta">${e.phone}</div>
+    <div class="meta">${e.type}</div>
+    <div class="time">${timeAgo(created)}</div>
+
+    <div class="menu">
+      <button class="menu-btn" onclick="toggleMenu(event)">⋮</button>
+      <div class="menu-list">
+        ${status==="pending"
+          ? `<button onclick="approve('${d.id}')">Whitelist</button>`
+          : `<button onclick="remove('${d.id}')">Delete</button>`}
+      </div>
+    </div>
+  `;
+
+  (status==="pending"?pending:white).appendChild(card);
+});
+
+window.approve=async(id)=>{
+  await updateDoc(doc(db,"enquiries",id),{status:"whitelisted"});
+  toast("Enquiry whitelisted");
+  location.reload();
+};
+
+window.remove=async(id)=>{
+  await deleteDoc(doc(db,"enquiries",id));
+  toast("Enquiry deleted");
+  location.reload();
+};
+</script>
+
+</body>
+</html>
