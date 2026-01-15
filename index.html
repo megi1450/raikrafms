@@ -724,6 +724,603 @@ nav a:hover::after{
   width:100%;
 }
 
+/* =====================================================
+   SERVICES – CENTERED, FOCUSED, ENTERPRISE DARK THEME
+   ===================================================== */
+
+/* SERVICES – LIGHT ENTERPRISE SECTION */
+/* SERVICES – MUTED BRAND DARK (MATCHING SITE) */
+#services.services-dark{
+  background:
+    linear-gradient(
+      180deg,
+      #0b1f36 0%,
+      #0a1b2e 100%
+    );
+  color:#e5e7eb;
+  padding:110px 20px;
+  text-align:center;
+}
+
+
+
+/* Section Heading */
+#services .services-title{
+  color:var(--brand); 
+  margin-bottom:16px;
+}
+
+#services .services-subtitle{
+  color:var(--muted); 
+  max-width:900px;
+  margin:0 auto 80px;
+  font-size:15px;
+}
+
+/* Stack wrapper */
+.services-stack{
+  display:flex;
+  flex-direction:column;
+  gap:56px;
+  align-items:center; /* KEY: centers cards */
+}
+
+/* =====================================================
+   SERVICE CARD
+   ===================================================== */
+
+.service-detail-card{
+  background:#0f223a;
+  border-radius:28px;
+  padding:56px;
+  max-width:1100px;        /* KEY: visual focus */
+  width:100%;
+  box-shadow:0 24px 60px rgba(0,0,0,0.35);
+  text-align:left;
+}
+
+/* Header row (icon + title) */
+.service-header{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+  margin-bottom:36px;
+}
+
+/* Icon */
+.service-icon{
+  width:72px;
+  height:72px;
+  border-radius:18px;
+  background:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+}
+
+.service-icon svg{
+  width:34px;
+  height:34px;
+  stroke:var(--brand-dark);
+  fill:none;
+  stroke-width:1.8;
+}
+
+/* Title */
+.service-content h3{
+  font-size:28px;
+  color:#ffffff;
+  margin-bottom:10px;
+}
+
+/* Intro */
+.service-intro{
+  color:#cbd5e1;
+  max-width:780px;
+  margin:0 auto;
+  font-size:15px;
+  line-height:1.6;
+}
+
+/* =====================================================
+   TWO COLUMN DETAILS
+   ===================================================== */
+
+.service-columns{
+  margin-top:44px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:48px;
+}
+
+/* Column headings */
+.service-columns h4{
+  color:#ffffff;
+  font-size:15px;
+  margin-bottom:12px;
+  letter-spacing:0.4px;
+}
+
+/* Lists */
+.service-columns ul{
+  padding-left:18px;
+}
+
+.service-columns li{
+  font-size:14px;
+  color:#d1d5db;
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+/* =====================================================
+   MOBILE OPTIMIZATION
+   ===================================================== */
+
+@media(max-width:900px){
+
+  .service-detail-card{
+    padding:40px 28px;
+  }
+
+  .service-columns{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+
+  .service-content h3{
+    font-size:24px;
+  }
+
+  .service-intro{
+    font-size:14px;
+  }
+}
+
+/* =====================================================
+   SERVICES – HARD FIX FOR EXISTING HTML STRUCTURE
+   (NO HTML CHANGES REQUIRED)
+   ===================================================== */
+
+/* Center the service cards */
+#services .services-stack{
+  align-items:center;
+}
+
+/* Limit card width + center */
+#services .service-detail-card{
+  max-width:1100px;
+  width:100%;
+  margin:0 auto;
+}
+
+/* Center icon + heading + intro (existing structure) */
+#services .service-icon{
+  margin:0 auto 20px;
+}
+
+#services .service-content{
+  text-align:center;
+}
+
+/* Intro text centered but readable */
+#services .service-intro{
+  margin:0 auto 32px;
+  max-width:780px;
+}
+
+/* Columns remain left-aligned for readability */
+#services .service-columns{
+  text-align:left;
+}
+
+/* Better mobile spacing */
+@media(max-width:900px){
+  #services .service-detail-card{
+    padding:40px 28px;
+  }
+}
+
+/* =====================================================
+   SERVICES – EXACT ASSET DASHBOARD HEADER LAYOUT
+   ===================================================== */
+
+/* Card */
+#services .service-detail-card{
+  background:#0f223a;
+  border-radius:28px;
+  padding:48px 52px;
+  max-width:1100px;
+  width:100%;
+  margin:0 auto;
+  box-shadow:0 24px 60px rgba(0,0,0,0.35);
+}
+
+/* HEADER: icon + text */
+#services .service-detail-card{
+  display:grid;
+  grid-template-columns:72px 1fr;
+  column-gap:28px;
+  align-items:start;
+}
+
+/* Icon */
+#services .service-icon{
+  width:72px;
+  height:72px;
+  border-radius:14px;
+  background:#ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0;
+}
+
+/* Header text block */
+#services .service-content{
+  text-align:left;
+}
+
+/* Title */
+#services .service-content h3{
+  font-size:32px;
+  font-weight:700;
+  color:#ffffff;
+  margin:0 0 6px;
+}
+
+/* Subheader */
+#services .service-intro{
+  margin:0 0 36px;
+  max-width:900px;
+  font-size:18px;
+  color:#cbd5e1;
+  line-height:1.45;
+}
+
+/* Move columns below header row */
+#services .service-columns{
+  grid-column:1 / -1;
+  margin-top:12px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:56px;
+}
+
+/* Column headings */
+#services .service-columns h4{
+  font-size:16px;
+  color:#ffffff;
+  margin-bottom:12px;
+}
+
+/* Lists */
+#services .service-columns li{
+  font-size:14px;
+  color:#d1d5db;
+  margin-bottom:8px;
+  line-height:1.6;
+}
+
+/* =====================================================
+   MOBILE – STACK LIKE THE IMAGE (ICON ON TOP)
+   ===================================================== */
+
+@media(max-width:900px){
+
+  #services .service-detail-card{
+    grid-template-columns:1fr;
+    padding:36px 28px;
+  }
+
+  #services .service-icon{
+    margin-bottom:16px;
+  }
+
+  #services .service-content h3{
+    font-size:26px;
+  }
+
+  #services .service-intro{
+    font-size:15px;
+  }
+
+  #services .service-columns{
+    grid-template-columns:1fr;
+    gap:32px;
+  }
+} 
+
+/* =====================================================
+   SERVICES – WHITE CARDS ON DARK BACKGROUND
+   ===================================================== */
+
+/* Card background */
+#services .service-detail-card{
+  background:#ffffff;
+  color:#1E2933;
+  box-shadow:0 24px 60px rgba(0,0,0,0.25);
+}
+
+/* Icon container */
+#services .service-icon{
+  background:var(--accent-soft);
+}
+
+/* Icon stroke */
+#services .service-icon svg{
+  stroke:var(--brand-dark);
+}
+
+/* Title */
+#services .service-content h3{
+  color:var(--brand-dark);
+}
+
+/* Subheader */
+#services .service-intro{
+  color:#475569;
+}
+
+/* Columns headings */
+#services .service-columns h4{
+  color:var(--brand-dark);
+}
+
+/* List text */
+#services .service-columns li{
+  color:#475569;
+}
+
+/* Mobile consistency */
+@media(max-width:900px){
+  #services .service-detail-card{
+    background:#ffffff;
+  }
+}
+
+/* SERVICES CARD – INTERACTION */
+#services .service-detail-card{
+  transition:
+    transform 0.45s ease,
+    box-shadow 0.45s ease;
+}
+
+#services .service-detail-card:hover{
+  transform:translateY(-8px);
+  box-shadow:var(--shadow-md);
+}
+
+/* More rhythm between cards */
+.services-stack{
+  gap:72px;
+}
+
+#services .service-detail-card:focus-within{
+  outline:3px solid rgba(242,213,138,0.35);
+  outline-offset:6px;
+}
+
+#services .services-title{
+  color:#f8fafc;
+}
+
+#services .services-subtitle{
+  color:#cbd5e1;
+}
+#services .service-detail-card{
+  background:#ffffff;
+  box-shadow:
+    0 18px 45px rgba(8,30,54,0.28),
+    0 2px 6px rgba(0,0,0,0.06);
+}
+#services .service-icon{
+  background:#eef2f7; /* softer than accent-soft */
+}
+#services.services-dark{
+  position:relative;
+}
+
+#services.services-dark::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:1px;
+  background:rgba(255,255,255,0.08);
+}
+
+#services.services-dark::after{
+  display:none; /* disables accent underline for this section */
+}
+
+/* =====================================================
+   ASSET DASHBOARD REDIRECT CTA
+   ===================================================== */
+
+.asset-redirect{
+  position:relative;
+  padding:120px 20px;
+  text-align:center;
+
+  background-image:url("digitalmanagment.jpeg");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+  overflow:hidden;
+}
+.asset-redirect-title{
+  font-size:36px;
+  letter-spacing:1px;
+  color:#f8fafc;
+  margin-bottom:16px;
+}
+
+.asset-redirect-subtitle{
+  color:#cbd5e1;
+  font-size:16px;
+  max-width:720px;
+  margin:0 auto 56px;
+}
+
+/* Card */
+.asset-redirect-card{
+  max-width:900px;
+  margin:0 auto;
+  background:#ffffff;
+  border-radius:22px;
+  padding:44px 48px;
+  display:grid;
+  grid-template-columns:72px 1fr auto;
+  gap:28px;
+  align-items:center;
+  text-align:left;
+  text-decoration:none;
+  color:inherit;
+  box-shadow:
+    0 22px 50px rgba(8,30,54,0.28);
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.asset-redirect-card:hover{
+  transform:translateY(-6px);
+  box-shadow:
+    0 32px 70px rgba(8,30,54,0.38);
+}
+
+/* Icon */
+.asset-redirect-icon{
+  width:64px;
+  height:64px;
+  border-radius:16px;
+  background:var(--accent-soft);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.asset-redirect-icon svg{
+  width:30px;
+  height:30px;
+  fill:none;
+  stroke:var(--brand-dark);
+  stroke-width:1.8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+/* Content */
+.asset-redirect-content h3{
+  font-size:22px;
+  color:var(--brand-dark);
+  margin-bottom:8px;
+}
+
+.asset-redirect-content p{
+  font-size:14px;
+  color:#475569;
+  margin-bottom:12px;
+}
+
+.asset-redirect-content ul{
+  padding-left:18px;
+}
+
+.asset-redirect-content li{
+  font-size:14px;
+  color:#475569;
+  margin-bottom:6px;
+}
+
+/* CTA Button */
+.asset-redirect-cta{
+  background:linear-gradient(
+    135deg,
+    var(--brand),
+    var(--brand-dark)
+  );
+  color:#ffffff;
+  padding:14px 26px;
+  border-radius:30px;
+  font-size:13px;
+  font-weight:600;
+  letter-spacing:0.8px;
+  white-space:nowrap;
+  transition:transform 0.3s ease;
+}
+
+.asset-redirect-card:hover .asset-redirect-cta{
+  transform:translateX(4px);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .asset-redirect-card{
+    grid-template-columns:1fr;
+    text-align:center;
+    padding:36px 28px;
+  }
+
+  .asset-redirect-icon{
+    margin:0 auto;
+  }
+
+  .asset-redirect-cta{
+    margin-top:16px;
+  }
+}
+
+/* STRONGER DARK TINT + BLUR */
+.asset-redirect::before{
+  content:"";
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      180deg,
+      rgba(8,30,54,0.78),
+      rgba(8,30,54,0.9)
+    );
+
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+
+  z-index:0;
+}
+
+/* Ensure content stays sharp */
+.asset-redirect .container{
+  position:relative;
+  z-index:1;
+}
+
+/* Heading */
+.asset-redirect-title{
+  font-size:38px;
+  letter-spacing:1.2px;
+  color:#ffffff;
+  margin-bottom:18px;
+}
+
+/* Subtitle */
+.asset-redirect-subtitle{
+  color:#c7d2fe;
+  font-size:16px;
+  max-width:760px;
+  margin:0 auto 60px;
+}
+.asset-redirect-card{
+  box-shadow:
+    0 30px 80px rgba(0,0,0,0.45),
+    0 0 0 1px rgba(255,255,255,0.05);
+}
+  
 </style>
 </head>
 
@@ -913,45 +1510,303 @@ transparency, and long-term sustainability across diverse asset classes.
 
 
 <!-- SERVICES -->
-<section id="services" class="image-section"
-style="background-image:url('https://images.unsplash.com/photo-1581093458791-9f3c3900df44');">
+<section id="services" class="services-dark">
+  <div class="container">
 
-<div class="container">
-<h2 style="color:#fff;">Our Services</h2>
-<p style="color:#e5e7eb;">
-End-to-end facility management solutions designed to ensure safety, uptime,
-hygiene, and cost efficiency.
-</p>
+    <h2 class="services-title">Our Services</h2>
+    <p class="services-subtitle">
+      Integrated facility management services delivered through governance,
+      process discipline, and operational excellence.
+    </p>
 
-<div class="grid">
+    <div class="services-stack">
 
-<div class="card glass-card">
-<h3>Integrated Facility Management</h3>
-<p>
-Single-point accountability for hard services, soft services, security,
-and support functions under one governance framework.
-</p>
-</div>
+      <!-- Integrated Facility Management -->
+      <div class="service-detail-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 4h16v16H4z"/>
+            <path d="M8 8h8v8H8z"/>
+          </svg>
+        </div>
 
-<div class="card glass-card">
-<h3>Hard Services Management</h3>
-<p>
-MEP systems, HVAC, fire & life safety, DG/UPS, BMS operations with preventive
-maintenance planning.
-</p>
-</div>
+        <div class="service-content">
+          <h3>Integrated Facility Management</h3>
+          <p class="service-intro">
+            Single-point accountability for hard services, soft services,
+            security, and support functions.
+          </p>
 
-<div class="card glass-card">
-<h3>Soft Services Management</h3>
-<p>
-Housekeeping, landscaping, waste management, and hygiene services delivered
-by trained and supervised manpower.
-</p>
-</div>
+          <h4 class="service-bio-title">Integrated Facility Management</h4>
+          <p class="service-bio">
+            Facility Management (FM) integrates all services under a unified
+            governance framework to optimize efficiency, safety, compliance,
+            and occupant comfort.
+          </p>
 
-</div>
-</div>
+          <div class="service-columns">
+            <div>
+              <h4>Governance Benefits</h4>
+              <ul>
+                <li>Centralized oversight</li>
+                <li>Improved compliance</li>
+                <li>Standardized processes</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Operational Efficiency</h4>
+              <ul>
+                <li>Streamlined operations</li>
+                <li>Cost reduction</li>
+                <li>Enhanced service quality</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hard Services Management -->
+      <div class="service-detail-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M14 2l8 8-8 8-8-8z"/>
+            <path d="M3 21l6-6"/>
+          </svg>
+        </div>
+
+        <div class="service-content">
+          <h3>Hard Services Management</h3>
+          <p class="service-intro">
+            MEP, fire & life safety, DG/UPS, BMS operations, and preventive maintenance.
+          </p>
+
+          <h4 class="service-bio-title">Hard Services Management</h4>
+          <p class="service-bio">
+            Hard Services Management covers critical engineering systems,
+            ensuring reliability, statutory compliance, energy efficiency,
+            and uninterrupted building operations.
+          </p>
+
+          <div class="service-columns">
+            <div>
+              <h4>Capabilities</h4>
+              <ul>
+                <li>MEP systems (HVAC, electrical, plumbing)</li>
+                <li>Fire & life safety system testing</li>
+                <li>DG/UPS, lifts, and BMS monitoring</li>
+                <li>Preventive & predictive maintenance</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Operational Impact</h4>
+              <ul>
+                <li>Reduced breakdowns and outages</li>
+                <li>Energy savings through optimization</li>
+                <li>Improved asset reliability and uptime</li>
+                <li>Compliance with statutory requirements</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Soft Services Management -->
+      <div class="service-detail-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24">
+            <path d="M3 21h18"/>
+            <path d="M6 17l6-12 6 12"/>
+          </svg>
+        </div>
+
+        <div class="service-content">
+          <h3>Soft Services Management</h3>
+          <p class="service-intro">
+            Housekeeping, landscaping, waste management, and hygiene services
+            delivered by trained operations teams.
+          </p>
+
+          <h4 class="service-bio-title">Soft Services Management</h4>
+          <p class="service-bio">
+            Soft Services Management ensures clean, safe, and compliant
+            environments through systematic housekeeping, landscaping,
+            and waste management protocols.
+          </p>
+
+          <div class="service-columns">
+            <div>
+              <h4>Capabilities</h4>
+              <ul>
+                <li>Housekeeping & hygiene protocols</li>
+                <li>Landscaping & façade cleaning</li>
+                <li>Waste segregation & disposal</li>
+                <li>Helpdesk & vendor supervision</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Operational Impact</h4>
+              <ul>
+                <li>Improved user experience & safety</li>
+                <li>Cleaner, compliant workplaces</li>
+                <li>Lower consumable wastage</li>
+                <li>Standardized SLAs & audits</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Digital Asset Management -->
+      <div class="service-detail-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24">
+            <rect x="3" y="3" width="18" height="18" rx="3"/>
+            <path d="M8 8h8v8H8z"/>
+          </svg>
+        </div>
+
+        <div class="service-content">
+          <h3>Digital Asset Management</h3>
+          <p class="service-intro">
+            Centralized digital control of facility assets for lifecycle tracking
+            and compliance readiness.
+          </p>
+
+          <h4 class="service-bio-title">Digital Asset Management</h4>
+          <p class="service-bio">
+            A unified digital repository that enables structured asset tracking,
+            documentation control, and audit-ready compliance across facilities.
+          </p>
+
+          <div class="service-columns">
+            <div>
+              <h4>Capabilities</h4>
+              <ul>
+                <li>Centralized asset repository</li>
+                <li>Instant access & retrieval</li>
+                <li>Lifecycle documentation</li>
+                <li>Audit-ready data structure</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Operational Impact</h4>
+              <ul>
+                <li>Improved governance</li>
+                <li>Data-driven decisions</li>
+                <li>Reduced operational risk</li>
+                <li>Enhanced compliance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asset Dashboard -->
+      <div class="service-detail-card">
+        <div class="service-icon">
+          <svg viewBox="0 0 24 24">
+            <rect x="2" y="3" width="20" height="14" rx="2"/>
+            <path d="M8 21h8"/>
+            <path d="M12 17v4"/>
+            <path d="M6 7h4"/>
+            <path d="M14 7h4"/>
+          </svg>
+        </div>
+
+        <div class="service-content">
+          <h3>Asset Dashboard</h3>
+          <p class="service-intro">
+            Monitor and manage all society assets in real time through a centralized
+            digital dashboard.
+          </p>
+
+          <h4 class="service-bio-title">Asset Dashboard</h4>
+          <p class="service-bio">
+            A real-time visibility platform that provides actionable insights
+            into asset health, maintenance planning, energy usage,
+            and operational risks.
+          </p>
+
+          <div class="service-columns">
+            <div>
+              <h4>Capabilities</h4>
+              <ul>
+                <li>Real-time asset status & health monitoring</li>
+                <li>Maintenance schedules & automated alerts</li>
+                <li>Energy consumption tracking</li>
+                <li>Asset utilization & performance reports</li>
+                <li>Predictive maintenance insights</li>
+              </ul>
+            </div>
+
+            <div>
+              <h4>Operational Impact</h4>
+              <ul>
+                <li>Reduced downtime & repair costs</li>
+                <li>Improved asset life cycle management</li>
+                <li>Optimized resource allocation</li>
+                <li>Enhanced transparency for residents</li>
+                <li>Proactive risk identification</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </section>
+
+<!-- ASSET DASHBOARD REDIRECTION -->
+<section class="asset-redirect">
+  <div class="container">
+
+    <h2 class="asset-redirect-title">
+      MANAGE YOUR ASSETS DIGITALLY
+    </h2>
+
+    <p class="asset-redirect-subtitle">
+      Streamline the organization and access of your digital assets.
+    </p>
+
+    <a
+      href="https://ao-asset.web.app"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="asset-redirect-card"
+    >
+      <div class="asset-redirect-icon">
+        <svg viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9"/>
+          <path d="M12 8v4"/>
+          <path d="M12 16h.01"/>
+        </svg>
+      </div>
+
+      <div class="asset-redirect-content">
+        <h3>Digital Asset Management</h3>
+        <p>
+          Centrally organize and store assets with real-time visibility
+          and structured access control.
+        </p>
+
+        <ul>
+          <li>Simplify access and retrieval</li>
+          <li>Enhance asset workflows</li>
+        </ul>
+      </div>
+
+      <div class="asset-redirect-cta">
+        Go to Dashboard →
+      </div>
+    </a>
+
+  </div>
+</section>    
 
 <section id="sites">
 <div class="container">
