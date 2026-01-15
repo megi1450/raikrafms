@@ -53,8 +53,7 @@ body{
 /* CARD */
 .deep-card{
   background:var(--panel);
-  border-radius:26px;
-  overflow:hidden;
+  border-radius:26px;   
   box-shadow:var(--shadow);
   margin-bottom:60px;
   animation:fadeUp 0.8s ease both;
@@ -62,9 +61,12 @@ body{
 
 .deep-card img{
   width:100%;
-  height:360px;
-  object-fit:cover;
+  height:auto;
+  display:block;
 }
+
+
+
 
 /* CONTENT */
 .deep-content{
@@ -126,6 +128,37 @@ body{
   from{opacity:0; transform:translateY(30px);}
   to{opacity:1; transform:none;}
 }
+
+/* IMAGE FRAME – NO CROP GUARANTEE */
+.image-frame{
+  width:100%;
+  aspect-ratio:16 / 9;
+  background:#0D2C4F;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.image-frame img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  display:block;
+}
+
+@media(max-width:768px){
+  .image-frame{
+    aspect-ratio:4 / 3;
+  }
+}
+
+@media(max-width:768px){
+  .deep-card img{
+    max-height:320px;
+    object-fit:contain;
+  }
+}
+
 </style>
 </head>
 
@@ -139,7 +172,10 @@ body{
 <section id="cobie" class="section">
 <div class="container">
 <div class="deep-card">
-<img src="cobie.jpg" alt="COBie Data Integration">
+<div class="image-frame">
+  <img src="cobie.jpg" alt="COBie Data Integration">
+</div>
+
 
 <div class="deep-content">
 <h2>COBie Data Integration</h2>
@@ -186,7 +222,10 @@ used daily by operations, maintenance, and audit teams.
 <section id="remote" class="section">
 <div class="container">
 <div class="deep-card">
-<img src="remoteasset.jpg" alt="Remote Asset Control">
+<div class="image-frame">
+  <img src="remoteasset.jpg" alt="COBie Data Integration">
+</div>
+
 
 <div class="deep-content">
 <h2>Remote Asset Control</h2>
@@ -232,7 +271,10 @@ RAIKRA’s remote control framework shifts FM from **reactive maintenance** to
 <section id="compliance" class="section">
 <div class="container">
 <div class="deep-card">
-<img src="compliance.jpg" alt="Compliance and Governance">
+<div class="image-frame">
+  <img src="compliance.jpg" alt="COBie Data Integration">
+</div>
+
 
 <div class="deep-content">
 <h2>Compliance & Governance</h2>
