@@ -68,19 +68,17 @@ nav a:hover{color:#fff;}
   background-size:cover;
   background-position:center;
   background-repeat:no-repeat;
-display:flex;
-align-items:flex-start;
-justify-content:center;
-
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
 
 .hero-inner{
   max-width:1100px;
-  padding:220px 20px 140px;  /* increased top padding */
+  padding:160px 20px 140px;
   text-align:center;
 }
-
 
 
 .hero h1{
@@ -590,30 +588,30 @@ nav a:hover::after{
   }
 }
 
-@media (max-width: 768px){
-  .hero-inner{
-    padding-top: 180px;   /* pushes text below logo */
-  }
-}
-
-.hero{
-  min-height:100vh;
+/* HERO TITLE – TRUE RESPONSIVE BEHAVIOR */
+.hero-title{
   display:flex;
   flex-direction:column;
-  justify-content:flex-start;
+  align-items:center;
+  text-align:center;
+  max-width:100%;
 }
 
-/* HARD RESERVED SPACE FOR BACKGROUND LOGO */
-.hero-spacer{
-  height:180px; /* DESKTOP SAFE */
-  flex-shrink:0;
+.hero-title span{
+  display:block;
+  max-width:100%;
+  text-wrap:balance;        /* modern balanced wrapping */
 }
 
-@media (max-width: 768px){
-  .hero-spacer{
-    height:140px; /* Mobile-safe */
-  }
+/* Fluid typography */
+.hero-title{
+  font-size:clamp(34px, 6vw, 58px);
+  line-height:1.15;
+  letter-spacing:0.8px;
 }
+
+/* Mobile fine-tuning */
+@me
 
 </style>
 </head>
@@ -650,22 +648,10 @@ nav a:hover::after{
 <div class="hero">
   <div class="hero-inner">
 
-<h1>
-  TRUSTED FACILITIES.<br>
-  DELIVERED RIGHT.
+<h1 class="hero-title">
+  <span>TRUSTED FACILITIES.</span>
+  <span>DELIVERED RIGHT.</span>
 </h1>
-
-<div class="hero-tagline">
-  Smarter Management. At Your Fingertips.
-</div>
-
-<p class="hero-description">
-  RAIKRA is a partner-led facility management company delivering reliable,
-  compliant, and technology-enabled services across diverse asset classes.
-  With innovative, data-driven solutions like COBie, RAIKRA empowers clients
-  to manage assets remotely and intelligently—bringing all-in-one control
-  to your fingertips for seamless, efficient operations.
-</p>
 
 
 
@@ -726,30 +712,81 @@ transparency, and long-term sustainability across diverse asset classes.
 
 
 <div class="grid">
-<div class="card">
-<h3>Partner-Led Governance</h3>
-<p>
-Direct involvement of leadership ensures accountability,
-clear decision-making, and consistent service quality.
-</p>
+
+  <!-- Remote Asset Control -->
+  <div class="card">
+    <h3>Remote Asset Control</h3>
+    <p>
+      Monitor and manage critical building systems remotely to improve
+      efficiency, reduce downtime, and maintain uninterrupted operations.
+    </p>
+
+    <p><strong>Key Features</strong></p>
+    <ul>
+      <li>Real-time monitoring of HVAC, lighting, and security systems</li>
+      <li>Remote troubleshooting and system adjustments</li>
+      <li>Predictive maintenance alerts</li>
+      <li>Energy optimization dashboards</li>
+    </ul>
+
+    <p><strong>Benefits</strong></p>
+    <ul>
+      <li>Lower operational costs</li>
+      <li>Improved asset uptime</li>
+      <li>Enhanced occupant comfort</li>
+    </ul>
+  </div>
+
+  <!-- COBie Data Integration -->
+  <div class="card">
+    <h3>COBie Data Integration</h3>
+    <p>
+      Structured, accurate building data management enabling seamless
+      project handover and full lifecycle facility management.
+    </p>
+
+    <p><strong>Key Features</strong></p>
+    <ul>
+      <li>Automated COBie-compliant data capture</li>
+      <li>Integration with BIM models and FM systems</li>
+      <li>Data validation and quality checks</li>
+      <li>Easy export for stakeholders</li>
+    </ul>
+
+    <p><strong>Benefits</strong></p>
+    <ul>
+      <li>Streamlined project handover</li>
+      <li>Reliable data for long-term FM operations</li>
+      <li>Compliance with industry standards</li>
+    </ul>
+  </div>
+
+  <!-- Compliance & Governance -->
+  <div class="card">
+    <h3>Compliance & Governance</h3>
+    <p>
+      Proactive regulatory compliance and governance supported by
+      audit-ready systems and transparent reporting frameworks.
+    </p>
+
+    <p><strong>Key Features</strong></p>
+    <ul>
+      <li>Compliance tracking for ISO, BSI, and local regulations</li>
+      <li>Automated audit logs and documentation</li>
+      <li>Role-based access control</li>
+      <li>Periodic governance and security reviews</li>
+    </ul>
+
+    <p><strong>Benefits</strong></p>
+    <ul>
+      <li>Reduced risk of non-compliance</li>
+      <li>Simplified audits and certifications</li>
+      <li>Increased stakeholder confidence</li>
+    </ul>
+  </div>
+
 </div>
 
-<div class="card">
-<h3>Experienced FM Professionals</h3>
-<p>
-Qualified engineers, supervisors, and facility managers
-with hands-on experience across asset classes.
-</p>
-</div>
-
-<div class="card">
-<h3>Technology-Enabled Operations</h3>
-<p>
-Digital work orders, asset tracking, CAFM systems,
-and real-time operational reporting.
-</p>
-</div>
-</div>
 </div>
 </section>
 
